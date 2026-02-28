@@ -1,0 +1,403 @@
+/* AWSMD Inspired Style */
+.awsmd-landing {
+    background-color: #0d0e12;
+    color: #f6f6f6;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+.awsmd-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+.awsmd-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.awsmd-btn {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+}
+
+.awsmd-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.awsmd-btn-primary {
+    background: #ccff00;
+    color: #000;
+    border: 1px solid #ccff00;
+}
+
+.awsmd-btn-primary:hover {
+    background: #b3e600;
+    color: #000;
+    transform: scale(1.05);
+}
+
+.awsmd-hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4rem;
+    position: relative;
+}
+
+.awsmd-hero-text {
+    font-size: 8vw;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    max-width: 90%;
+    margin: 0;
+}
+
+.awsmd-hero-sub {
+    font-size: 1.5vw;
+    font-weight: 400;
+    opacity: 0.6;
+    margin-top: 2rem;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+.awsmd-section {
+    padding: 10rem 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.awsmd-title-sm {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.awsmd-title-sm::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.awsmd-grid-services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.awsmd-service-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 3rem;
+    transition: background 0.3s;
+}
+
+.awsmd-service-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.awsmd-service-card h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.awsmd-service-card p {
+    font-size: 1rem;
+    opacity: 0.6;
+    line-height: 1.6;
+}
+
+.awsmd-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.awsmd-stat-num {
+    font-size: 5vw;
+    font-weight: 900;
+    color: #ccff00;
+    line-height: 1;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 4rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 30s linear infinite;
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    color: transparent;
+}
+
+.marquee-content span {
+    margin-right: 2rem;
+    white-space: nowrap;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.awsmd-footer {
+    padding: 6rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.awsmd-footer h2 {
+    font-size: 4vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin-bottom: 2rem;
+}
+
+.awsmd-list {
+    list-style: none;
+    padding: 0;
+}
+
+.awsmd-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.awsmd-list li::before {
+    content: '+';
+    color: #ccff00;
+    font-weight: bold;
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+    .awsmd-hero {
+        padding: 0 2rem;
+    }
+
+    .awsmd-section {
+        padding: 4rem 2rem;
+    }
+
+    .awsmd-hero-text {
+        font-size: 12vw;
+    }
+
+    .awsmd-hero-sub {
+        font-size: 4vw;
+    }
+
+    .awsmd-grid-services {
+        grid-template-columns: 1fr;
+    }
+
+    .awsmd-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .awsmd-stat-num {
+        font-size: 4rem;
+    }
+
+    .awsmd-nav {
+        padding: 1.5rem 2rem;
+    }
+
+    .awsmd-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4rem;
+        padding: 4rem 2rem;
+    }
+
+    .awsmd-footer h2 {
+        font-size: 10vw;
+    }
+}
+
+/* Custom cursor styles */
+.awsmd-landing {
+    cursor: none;
+}
+
+.awsmd-landing a,
+.awsmd-landing button,
+.awsmd-landing .clickable {
+    cursor: none;
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+}
+
+/* SMART DEVELOPMENT Section image styles */
+.awsmd-portfolio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.awsmd-portfolio-item {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.awsmd-portfolio-item:nth-child(even) {
+    grid-template-columns: 1.5fr 1fr;
+    direction: rtl;
+}
+
+.awsmd-portfolio-item:nth-child(even)>* {
+    direction: ltr;
+}
+
+.awsmd-portfolio-img {
+    width: 100%;
+    border-radius: 24px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 3%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.awsmd-portfolio-img img,
+.awsmd-portfolio-img video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transform-origin: center;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.awsmd-portfolio-img:hover img,
+.awsmd-portfolio-img:hover video {
+    transform: scale(1.05);
+}
+
+@media (max-width: 991px) {
+    .awsmd-portfolio-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .awsmd-portfolio-item:nth-child(even) {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+}
+
+/* Testimonial Section */
+.awsmd-testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.awsmd-testimonial-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 3rem;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.awsmd-testimonial-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.awsmd-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.awsmd-testimonial-author .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 991px) {
+    .awsmd-testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
