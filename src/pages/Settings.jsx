@@ -246,7 +246,7 @@ function Settings() {
     if (error) return <AppLayout><ErrorBox error={error} onRetry={loadData} /></AppLayout>;
 
     const activeAgents = statusData?.activeAgents || [];
-    const redirectUri = oauthStatus?.redirectUri || 'http://localhost:3001/oauth/gmail/callback';
+    const redirectUri = oauthStatus?.redirectUri || `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/oauth/gmail/callback`;
 
     return (
         <AppLayout>
