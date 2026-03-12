@@ -13,7 +13,7 @@ import './Landing.css';
 import AntiGravityCursor from '../components/ui/AntiGravityCursor';
 import './Landing.css';
 import ReactiveParticles from '../components/ui/ReactiveParticles';
-
+ 
 export default function Landing() {
     const { scrollYProgress } = useScroll();
     const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
