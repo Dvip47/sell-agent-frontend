@@ -10,9 +10,9 @@ import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Activity, Zap, Users } from 'lucide-react';
 import './Landing.css';
-import AntiGravityCursor from '../components/UI/AntiGravityCursor';
+import AntiGravityCursor from '../components/ui/AntiGravityCursor';
 import './Landing.css';
-import ReactiveParticles from '../components/UI/ReactiveParticles';
+import ReactiveParticles from '../components/ui/ReactiveParticles';
 
 export default function Landing() {
     const { scrollYProgress } = useScroll();
