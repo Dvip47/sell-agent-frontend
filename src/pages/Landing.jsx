@@ -10,54 +10,44 @@ import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Activity, Zap, Users } from 'lucide-react';
 import './Landing.css';
+import AntiGravityCursor from '../components/UI/AntiGravityCursor';
+import './Landing.css';
+import ReactiveParticles from '../components/UI/ReactiveParticles';
 
 export default function Landing() {
     const { scrollYProgress } = useScroll();
     const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-    const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
-    const [isHovered, setIsHovered] = useState(false);
+    const [mouseState, setMouseState] = useState({ isHovered: false, text: '' });
 
     useEffect(() => {
-        const updateMousePosition = (e) => {
-            setMousePosition({ x: e.clientX, y: e.clientY });
-        };
         const handleMouseOver = (e) => {
-            if (e.target.tagName.toLowerCase() === 'a' || e.target.tagName.toLowerCase() === 'button' || e.target.closest('a') || e.target.closest('button')) {
-                setIsHovered(true);
+            const target = e.target;
+            const interactive = target.closest('a') || target.closest('button') || target.closest('.clickable');
+
+            if (interactive) {
+                const hoverText = interactive.getAttribute('data-cursor-text') || 'Explore';
+                setMouseState({ isHovered: true, text: hoverText });
             } else {
-                setIsHovered(false);
+                setMouseState({ isHovered: false, text: '' });
             }
         };
 
-        window.addEventListener('mousemove', updateMousePosition);
         window.addEventListener('mouseover', handleMouseOver);
-
-        return () => {
-            window.removeEventListener('mousemove', updateMousePosition);
-            window.removeEventListener('mouseover', handleMouseOver);
-        };
+        return () => window.removeEventListener('mouseover', handleMouseOver);
     }, []);
 
     return (
         <div className="awsmd-landing" style={{ cursor: 'none' }}>
-            {/* Custom Mouse Cursor */}
-            <motion.div
-                className="custom-cursor"
-                animate={{
-                    x: mousePosition.x - 10,
-                    y: mousePosition.y - 10,
-                    scale: isHovered ? 2.5 : 1,
-                    backgroundColor: isHovered ? 'rgba(204,255,0,0.5)' : '#ccff00'
-                }}
-                transition={{ type: 'spring', stiffness: 500, damping: 28, mass: 0.5 }}
-            />
+            <ReactiveParticles />
+            {/* AntiGravity Custom Cursor */}
+            <AntiGravityCursor isHovered={mouseState.isHovered} text={mouseState.text} />
 
             {/* Nav */}
             <nav className="awsmd-nav">
                 <div className="awsmd-logo">SellAgent</div>
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                    <a href="/login" className="awsmd-btn">Sign In</a>
-                    <a href="/register" className="awsmd-btn awsmd-btn-primary">Deploy <ArrowRight size={16} /></a>
+                    <a href="/login" className="awsmd-btn" data-cursor-text="Login">Sign In</a>
+                    <a href="/register" className="awsmd-btn awsmd-btn-primary" data-cursor-text="Go">Deploy <ArrowRight size={16} /></a>
                 </div>
             </nav>
 
@@ -70,7 +60,14 @@ export default function Landing() {
                 >
                     <h1 className="awsmd-hero-text">We don't sell software.</h1>
                     <h1 className="awsmd-hero-text" style={{ color: '#ccff00', WebkitTextStroke: '0px' }}>We Deploy Teams.</h1>
-                    <p className="awsmd-hero-sub">Get an autonomous sales team that discovers, engages, and books meetings for your business while you sleep. Powered by advanced AI logic, zero dashboards needed.</p>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                        className="awsmd-hero-sub"
+                    >
+                        Get an autonomous sales team that discovers, engages, and books meetings for your business while you sleep. Powered by advanced AI logic, zero dashboards needed.
+                    </motion.p>
                 </motion.div>
 
                 <motion.div
@@ -174,7 +171,7 @@ export default function Landing() {
                             <p style={{ opacity: 0.7, fontSize: '1.2rem', lineHeight: 1.6, marginBottom: '2rem' }}>
                                 Look at our brutalist, hyper-optimized intelligence interface. We cut out all the noise so your team can focus exclusively on converting the highest-intent leads we serve. Built for speed, precision, and raw unadulterated execution.
                             </p>
-                            <a href="/register" className="awsmd-btn">See Live Demo <ArrowRight size={16} /></a>
+                            <a href="/register" className="awsmd-btn" data-cursor-text="Watch">See Live Demo <ArrowRight size={16} /></a>
                         </div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -182,6 +179,7 @@ export default function Landing() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                             className="awsmd-portfolio-img"
+                            data-cursor-text="Play"
                         >
                             <video
                                 src="/DemoVideo.mp4"

@@ -190,7 +190,7 @@ function Dashboard() {
                                     {summary?.successRate !== null && summary?.successRate !== undefined && (
                                         <div className="col-auto">
                                             <div className="text-end">
-                                                <div className="text-white-50 x-small text-uppercase fw-bold ls-1 mb-1">Success Rate</div>
+                                                <div className="text-white-50 x-small text-uppercase fw-bold ls-1 mb-1">Performance Index</div>
                                                 <div className="h4 fw-bold text-success mb-0">{summary.successRate}%</div>
                                             </div>
                                         </div>
